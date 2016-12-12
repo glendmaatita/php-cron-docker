@@ -1,0 +1,1 @@
+* * * * * . /root/project_env.sh;/usr/local/bin/php -f /scripts/index.php 2>&1 >> /var/log/cron.log

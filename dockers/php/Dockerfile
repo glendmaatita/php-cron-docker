@@ -1,12 +1,9 @@
-FROM php:7.1
+FROM php:8.3
 
-RUN apt-get update && apt-get install -y cron
+RUN apt update && apt install -y cron
 
 # create default folder for scripts
 RUN mkdir /scripts
-
-# create cron log
-RUN touch /var/log/cron.log
 
 # add crontab file
 ADD proj-cron /etc/cron.d/proj-cron

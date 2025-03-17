@@ -1,13 +1,14 @@
-php:
-    build: ./dockers/php/
-    volumes_from:
-        - app
-    container_name: cron-php
+services:
+    php:
+        build: ./dockers/php/
+        volumes_from:
+            - app
+        container_name: cron-php
 
-app:
-    image: php:7.1
-    volumes:
-        - ./src:/scripts
-        - ./data/logs:/var/log
-    command: "true"
-    container_name: cron-app
+    app:
+        image: php:8.3
+        volumes:
+            - ./src:/scripts
+            - ./data/logs:/var/log
+        command: ["tail", "-f", "/dev/null"]
+        container_name: cron-app
